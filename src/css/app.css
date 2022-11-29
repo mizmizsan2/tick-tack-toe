@@ -12,4 +12,14 @@
     font-size: 65px;
 }
 
+.result{
+    padding: 8px 19px;
+    margin: 2em 0;
+    color: #f1f1f1;
+    background: #0300ad;
+    border-top: solid 5px #070069;
+    border-bottom: solid 5px #070069;
+    font-size: xx-large;
+}
+
 
