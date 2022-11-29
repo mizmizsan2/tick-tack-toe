@@ -1,0 +1,15 @@
+/* iOS Cordova Tweak */
+.device-cordova.device-ios {
+  height: 100vh;
+}
+
+/* Your app custom styles here */
+.cell{
+    height: 100px;
+    width: 100px;
+    border: inset 7px rgb(0, 132, 255);
+    text-align: center;
+    font-size: 65px;
+}
+
+
