@@ -11,23 +11,24 @@ import Cell from '../components/Cell';
 
 
 const HomePage = () => {
-    const [board, setBoard] = React.useState([
+    const [board, setBoard] = React.useState([  //
         [0, 0, 0],
         [0, 0, 0],
         [0, 0, 0]]);
 
-    const [turn, setTurn] = React.useState(1);
+    const [turn, setTurn] = React.useState(1);  //奇数 => 〇を配置    偶数 => ✕を配置
 
     const [result, setResult] = React.useState(0); //0 => 続行  1 => 〇の勝ち   2 => ✕の勝ち   3 => 引き分け
 
-    const win = [[[0, 0], [0, 1], [0, 2]],
-    [[1, 0], [1, 1], [1, 2]],
-    [[2, 0], [2, 1], [2, 2]],
-    [[0, 0], [1, 0], [2, 0]],
-    [[0, 1], [1, 1], [2, 1]],
-    [[0, 2], [1, 2], [2, 2]],
-    [[0, 0], [1, 1], [2, 2]],
-    [[2, 0], [1, 1], [0, 2]]
+    const win = [   //８通りのセルの場所
+        [[0, 0], [0, 1], [0, 2]],
+        [[1, 0], [1, 1], [1, 2]],
+        [[2, 0], [2, 1], [2, 2]],
+        [[0, 0], [1, 0], [2, 0]],
+        [[0, 1], [1, 1], [2, 1]],
+        [[0, 2], [1, 2], [2, 2]],
+        [[0, 0], [1, 1], [2, 2]],
+        [[2, 0], [1, 1], [0, 2]]
     ];
 
 
@@ -46,7 +47,7 @@ const HomePage = () => {
             }
         }
 
-        if (turn == 9)
+        if (turn == 9)  //すべてのマスが埋まったら
             setResult(3);
     }
 
@@ -55,18 +56,18 @@ const HomePage = () => {
             return;
 
         let bCopy = [[...board[0]], [...board[1]], [...board[2]]]; // boardのコピーを作成
-        if (turn % 2 == 1)
-            bCopy[y][x] = 1;
+        if (turn % 2 == 1)  //ターン数が奇数であれば
+            bCopy[y][x] = 1;    //〇を投入
         else
-            bCopy[y][x] = 2;
+            bCopy[y][x] = 2;    //✕を投入
 
         setBoard(bCopy)
-        setTurn(turn + 1);
+        setTurn(turn + 1);  //ターン数を1増やす
 
-        judgeGames(bCopy);
+        judgeGames(bCopy);  //勝敗、ゲームが続くかの判定
     }
 
-    let content = "";
+    let content = "";   //結果表示のための変数
     if (result == 1)
         content = "〇の勝利！！";
     else if (result == 2)
